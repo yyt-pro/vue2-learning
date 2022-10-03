@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初识vue</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1>Hello {{ name }}</h1>
+    </div>
+
+    <div class="test">
+        <!--注意双花括号中可以写js表达式-->
+        <!--
+          js表达式：一个表达式生成一个值，放在任何一个需要值的地方
+                例如 (1).a (2) 1+b (3) demo(1) （4) x===y ? 1 : 0
+          js语句： if while for...
+        -->
+        <h1>{{name.toUpperCase()}},{{address}} {{1+1}} {{Date.now()}}</h1>
+    </div>
+
+    <script type="text/javascript">
+        // 阻止vue在启动时生成生产提示
+        Vue.config.productionTip = false;
+       
+        // 创建vue实例
+        new Vue({
+            el: '#root', // document.getElementById('root') //element el指定当前vue实例为哪一个容器服务，值通常为css选择器格式
+            data: {
+                //data用来存储数据，以后会用函数来表示
+               name:'yyt',
+               age:21
+            }
+        })
+
+        new Vue({
+           el: '.test',
+           data:{
+               name: 'test',
+               address: 'Tokyo'
+           }
+       })
+
+    </script>
+</body>
+</html>
